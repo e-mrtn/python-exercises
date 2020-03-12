@@ -24,15 +24,8 @@ def consonant(word):
 	for letter in consonants:
 		if letter in word:
 			consonants_.append(letter)
-	return consonants_ 
-
-
-def alpha(word):
-    if word.isalpha():
-        print(word)
-    else:
-         print("Only input alphabetical characters please")
-
+	return consonants_
+    
 def run():
         words = open('words.txt','r').read().split('\n')
         for word in words:
