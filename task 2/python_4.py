@@ -1,8 +1,3 @@
-words = open('words.txt','r').read().split('\n')
-lowercase = []
-for word in words:
-	lowercase.append(word.lower())
-
 def reverse(string):
 	rev = ""
 	for c in reversed(string):
@@ -38,22 +33,33 @@ def alpha(word):
     else:
          print("Only input alphabetical characters please")
 
+def run():
+        words = open('words.txt','r').read().split('\n')
+        lowercase = []
+        for word in words:
+                lowercase.append(word.lower())
+        for word in words:
+            if word.isalpha():
+                print("---------------")
+                print(word)
+                is_pal = palindrome(word)
 
-for word in words:
-    if word.isalpha():
-        print("---------------")
-        print(word)
-        is_pal = palindrome(word)
-        print("Letters: "+str(len(word)))
-        vowels = vowel(word)
-        print("Vowels: %s" % (', '.join(vowels)))
-        consonants = consonant(word)
-        print("Consonants: %s" % (', '.join(consonants)))
-        rev = reverse(word)
-        print(rev)
-    else:
-        print("Only input alphabetical characters please")
+                if is_pal:
+                        print("Palindrome: Yes")
+                else:
+                        print("Palindrome: No")
+                        
+                print("Letters: "+str(len(word)))
+                vowels = vowel(word)
+                print("Vowels: %s" % (', '.join(vowels)))
+                consonants = consonant(word)
+                print("Consonants: %s" % (', '.join(consonants)))
+                rev = reverse(word)
+                print(rev)
+            else:
+                print("Only input alphabetical characters please")
 
+run()
 # git status - view changed files
 # git add python_4.py
 # git commit -m "i added this function to"
