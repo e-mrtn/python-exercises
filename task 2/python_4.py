@@ -35,26 +35,24 @@ def consonant(word):
 def alpha(word):
     if word.isalpha():
         print(word)
-        if is_pal:
-            print("Palindrome? Yes")
-        else:
-            print("Palindrome? No")
-            
     else:
          print("Only input alphabetical characters please")
 
 
 for word in words:
-    print("---------------")
-    print(word)
-    is_pal = palindrome(word)
-    print("Letters: "+str(len(word)))
-    vowels = vowel(word)
-    print("Vowels: %s" % (', '.join(vowels)))
-    consonants = consonant(word)
-    print("Consonants: %s" % (', '.join(consonants)))
-    rev = reverse(word)
-    print(rev)
+    if word.isalpha():
+        print("---------------")
+        print(word)
+        is_pal = palindrome(word)
+        print("Letters: "+str(len(word)))
+        vowels = vowel(word)
+        print("Vowels: %s" % (', '.join(vowels)))
+        consonants = consonant(word)
+        print("Consonants: %s" % (', '.join(consonants)))
+        rev = reverse(word)
+        print(rev)
+    else:
+        print("Only input alphabetical characters please")
 
 # git status - view changed files
 # git add python_4.py
