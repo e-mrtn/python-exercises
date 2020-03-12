@@ -67,3 +67,7 @@ count = len(words)
 if counter == count:
     run()
         
+# git status - view changed files
+# git add python_4.py
+# git commit -m "i added this function to"
+# git push origin master
