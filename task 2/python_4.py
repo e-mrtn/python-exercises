@@ -1,72 +1,61 @@
 words = open('words.txt','r').read().split('\n')
-
 lowercase = []
 for word in words:
-    lowercase.append(word.lower())
+	lowercase.append(word.lower())
 
-def reverse():
-    reverse = word[::-1]
-    return reverse
+def reverse(string):
+	rev = ""
+	for c in reversed(string):
+		rev+=c
+	return rev
 
-def palindrome():
-    reverse = word[::-1]
-    if word == reverse:
-        print("Palindrome? Yes")
-    else:
-        print("Palindrome? No")
-        
-    return palindrome
+def palindrome(word):
+	rev = reverse(word)
+	if word == rev:
+		return True
+	return False
+	
+def vowel(word):
+	vowels = ['a','e','i','o','u']
+	vowels_ = []
+	for letter in vowels:
+		if letter in word:
+			vowels_.append(letter)
+	return vowels_
 
-def length():
-    l = len(word)
-    print("Letters:",l)
-    return l
+def consonant(word):
+	consonants = ["b","c","d","f","g","h","j","k","l","m","n","p","q","r","s","t","v","w","x","y","z"]
+	consonants_ = []
+	for letter in consonants:
+		if letter in word:
+			consonants_.append(letter)
+	return consonants_ 
 
-def vowel():
-    vowels = ["a","e","i","o","u"]
-    check = []
-    for letter in word:
-            for vowel in vowels:
-                if letter == vowel:
-                    if vowel not in check:
-                            check.append(vowel)
 
-    print("Vowels: %s" % (', '.join(check)))
-    return check
-
-def consonant():
-    consonants = ["b","c","d","f","g","h","j","k","l","m","n","p","q","r","s","t","v","w","x","y","z"]
-    check = []
-    for letter in word:
-            for consonant in consonants:
-                if letter == consonant:
-                    if consonant not in check:
-                        check.append(consonant)
-    print("Consonants: %s" % (', '.join(check)))
-    return check
-        
-def run():
-    for word in words:
-        print("---------------")
-        print("Word:",word)
-        palindrome()
-        length()
-        vowel()
-        consonant()
-        print(word[::-1])
-
-counter = 0
-for word in words:
+def alpha(word):
     if word.isalpha():
-        counter = counter + 1
-        continue
+        print(word)
+        if is_pal:
+            print("Palindrome? Yes")
+        else:
+            print("Palindrome? No")
+            
     else:
-        print(word, "is non alphabetical")
+         print("Only input alphabetical characters please")
 
-count = len(words)
-if counter == count:
-    run()
-        
+
+for word in words:
+    print("---------------")
+    print(word)
+    is_pal = palindrome(word)
+    print("Letters: "+str(len(word)))
+    vowels = vowel(word)
+    print("Vowels: %s" % (', '.join(vowels)))
+    consonants = consonant(word)
+    print("Consonants: %s" % (', '.join(consonants)))
+    rev = reverse(word)
+    print(rev)
+
 # git status - view changed files
 # git add python_4.py
 # git commit -m "i added this function to"
