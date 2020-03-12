@@ -35,9 +35,6 @@ def alpha(word):
 
 def run():
         words = open('words.txt','r').read().split('\n')
-        lowercase = []
-        for word in words:
-                lowercase.append(word.lower())
         for word in words:
             if word.isalpha():
                 print("---------------")
